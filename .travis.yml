@@ -29,10 +29,10 @@ before_install:
 install:
  - echo 'Install Stage........'
  - git clone https://github.com/AcSiP/openwrt.git
+  - cd openwrt
  - ls -la
- - cd openwrt
- - ls -la
- - git checkout -t -b AI7688H__chaos_calmer origin/AI7688H__chaos_calmer
+ - git branch -a
+ - git checkout AI7688H__chaos_calmer
  - pwd
  - ls -l
 
