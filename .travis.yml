@@ -52,7 +52,6 @@ script:
 after_success:
  - echo 'After Success Stage........'
 # - sudo apt-get update -qq
-# - sudo apt-get install -qq [packages list]
 
 
 after_failure:
@@ -64,3 +63,4 @@ after_failure:
 after_script:
  - echo 'After Script Stage........'
 # -
+
