@@ -32,6 +32,7 @@ install:
   - cd openwrt
  - ls -la
  - git branch -a
+ 
  - git checkout AI7688H__chaos_calmer
  - pwd
  - ls -l
