@@ -1,0 +1,66 @@
+
+language: c
+compiler: gcc
+dist: trusty
+sudo: required
+
+
+# safelist
+branches:
+  only:
+  - master
+
+
+addons:
+  hosts:
+  - travis.dev
+  - joshkalderimis.com
+
+
+before_install:
+ - echo 'Before Install Stage........'
+# - sudo dpkg --add-architecture i386
+ - sudo apt-get update
+# - sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+ - sudo apt-get install git g++ make libncurses5-dev subversion libssl-dev gawk libxml-parser-perl unzip wget python xz-utils
+
+
+ 
+install:
+ - echo 'Install Stage........'
+ - git clone https://github.com/AcSiP/openwrt.git
+ - cd openwrt
+ - git checkout -t -b AI7688H__chaos_calmer origin/AI7688H__chaos_calmer
+ - pwd
+ - ls -l
+
+
+before_script:
+ - echo 'Before Script Stage........'
+ - ./scripts/feeds update
+ - ./scripts/feeds install -a
+ - cp ../AI7688H__Config  .config
+# - bundle exec rake build
+
+
+script:
+ - echo 'Script Stage........'
+ - make
+# - bundle exec rake builddoc
+
+
+after_success:
+ - echo 'After Success Stage........'
+# - sudo apt-get update -qq
+# - sudo apt-get install -qq [packages list]
+
+
+after_failure:
+ - echo 'After Failure Stage........'
+# -
+
+
+
+after_script:
+ - echo 'After Script Stage........'
+# -
